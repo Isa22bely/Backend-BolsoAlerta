@@ -10,43 +10,53 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
+@if (Route::has('login'))
+                            <nav class="-mx-3 flex flex-1 justify-end">
+                                @auth
+                                    <a
+                                        href="{{ url('/dashboard') }}"
+                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                    >
+                                        Dashboard
+                                    </a>
+                                @else
+                                    <a
+                                        href="{{ route('login') }}"
+                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                    >
+                                        Log in
+                                    </a>
+
+                                    @if (Route::has('register'))
+                                        <a
+                                            href="{{ route('register') }}"
+                                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                        >
+                                            Register
+                                        </a>
+                                    @endif
+                                @endauth
+                            </nav>
+                        @endif
 <body class="fundo">
     <div class="mx-auto p-2" style="width: 70%;">
-    <img class="rounded mx-auto d-block" src="{{asset('storage/exemplo/logoCB.svg')}}">
-    <div class="text-center">
-        <h3 class="fw-medium"> CORPO DE BOMBEIROS MILITAR DE MINAS GERAIS </h3>
-    </div>
+    
   
     <div class="card">
         <div class="card-body">
-            <form>
-                <div class="mx-auto p-2" style="width: 280px;">
-                     <h5 class="fw-bold" class="text-break">REALIZAR LOGIN NO SISTEMA</h5>
-                     <hr/>
-                </div>     
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label" >Usuário administrador:</label>
-                    <input type="user" class="form-control" id="exampleInputEmail1">
-                    
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Senha:</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
-                </div>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                    <button type="submit" class="botao">
-                        <a style="text-decoration: none; color: #ffff" href="/listar">
-                            Entrar
-                        </a>
-                    </button>
-                   
-                </div>   
-                
-            </form>
+            <h3>
+                Informações do projeto......
+            </h3>
         </div>
-
-    
     </div>
+    <div class="card">
+        <div class="card-body">
+            <h3>
+                Link para o aplicativo
+            </h3>
+        </div>
+    </div>
+
     </div>
 <footer class="rodape">
         <div>
