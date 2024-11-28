@@ -14,11 +14,16 @@ return new class extends Migration
         Schema::create('mensagems', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('conteudo', 2400)->nullable();
-            $table->string('caminhoFoto');
-            $table->date('dtEnvio');
+            $table->string('conteudo', 2400);
+            $table->string('caminhoFoto')->nullable();
+            $table->unsignedBigInteger('destinatario');
+            $table->unsignedBigInteger('remetente');
+            $table->dateTime('dtEnvio');
             $table->unsignedBigInteger('idEmergencia');
+
             $table->foreign('idEmergencia')->references('id')->on('emergencias');
+            $table->foreign('destinatario')->references('id')->on('users');
+            $table->foreign('remetente')->references('id')->on('users');
         });
     }
 

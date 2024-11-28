@@ -13,32 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// ROTAS DO CONTROLLER DAS EMERGENCIAS
+Route::get('/', [App\Http\Controllers\ControladorEmergencia::class, 'index']);
+Route::get('/listarEmergencia/{id}', [App\Http\Controllers\ControladorEmergencia::class, 'show']);
 
+// ROTAS DO CONTROLLER DAS EMERGENCIAS
+Route::get('/listarMensagens/{idEmergencia}', [App\Http\Controllers\ControladorMensagem::class, 'show'])->name("listarMensagens");
+Route::get('/novaMensagem/{idEmergencia}', [App\Http\Controllers\ControladorMensagem::class, 'store']);
 
-
-
-
-
-
-
-
-
-
-Route::get('/listar', function () {
-    return view('listagem');
-});
-
-Route::get('/emergencia', function () {
-    return view('chamadaDeEmergencia');
-});
-
-Route::get('/chat', function () {
-    return view('chat');
-});
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->string('RG_PCD')->nullable();
             $table->string('telefone')->nullable();
+            $table->string('deficiencia')->nullable();
+            $table->string('tipo');
             $table->date('dtNascimento')->nullable();
         });
     }

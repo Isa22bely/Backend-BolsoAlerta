@@ -1,0 +1,13 @@
+POST http://127.0.0.1:8000/api/register HTTP/1.1 
+Content-Type: application/json
+
+{
+    "name": "Giovana", 
+    "email": "gio@gmail.com", 
+    "password": "12345678",
+    "telefone": "11111111",
+    "RG_PCD": "111111111",
+    "dtNascimento": "2024-12-12",
+    "tipo": "adm",
+    "deficiencia": "auditiva"
+}

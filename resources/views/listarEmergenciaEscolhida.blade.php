@@ -18,23 +18,23 @@
     <div class="card text-center">
     <div class="carde">
         <h5 class="text-start">endereço:</h5>
-        <p class="text-start">Av. dos imigrantes, 1000 - Jardim Panorama, Varginha</p>
+        <p class="text-start">{{$emergencia->rua}}, {{$emergencia->numero}} - {{$emergencia->bairro}}, {{$emergencia->cidade}}</p>
         <div class="mx-auto p-2" style="width: 400px;">
             <hr/>
         </div> 
         <h5 class="text-start">TIPO DE EMERGÊNCIA:</h5>
-        <p class="text-start">Incêndio residencial</p>
+        <p class="text-start">{{$emergencia->tipoEmergencia}} {{$emergencia->subEmergencia}}</p>
         <div class="mx-auto p-2" style="width: 400px;">
             <hr/>
         </div> 
         <h5 class="text-start">PESSOA QUE REALIZOU A CHAMADA:</h5>
-        <p class="text-start">Maria das Graças de Souza</p>
-        <p class="text-start">Deficiente auditivo(a)</p>
+        <p class="text-start">{{$emergencia->nomeUser}}</p>
+        <p class="text-start">Deficiente {{$emergencia->deficiencia}}</p>
         
     </div> 
     </div>
 </div>
-<a href="/chat">
+<a href="/listarMensagens/{{$emergencia->id}}">
     <div class="cardchat">
         <div class="card border-secondary mb-3" style="max-width: 10rem;">
             <div class="carde">
