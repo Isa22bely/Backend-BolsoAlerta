@@ -21,12 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'usuario',
+        'RG_PCD',
         'estado',
-        'cidade',
-        'bairro',
-        'rua',
-        'numero',
     ];
 
     /**

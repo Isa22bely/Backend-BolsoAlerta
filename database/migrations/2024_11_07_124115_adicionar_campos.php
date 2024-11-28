@@ -12,12 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('usuario');
-            $table->string('estado');
-            $table->string('cidade');
-            $table->string('bairro');
-            $table->string('rua');
-            $table->string('numero');
+            $table->string('RG_PCD')->nullnable();
+            $table->string('telefone')->nullnable();
         });
     }
 
