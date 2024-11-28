@@ -32,9 +32,9 @@
                      <hr/>
                 </div>     
                 <div class="mb-3">
-                    <label for="usuario" class="form-label" >Usuário administrador:</label>
-                    <input id="usuario" type="user" class="form-control @error('user') is-invalid @enderror" name="usuario" required autocomplete="user">
-                    @error('password')
+                    <label for="email" class="form-label" >Usuário administrador:</label>
+                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" required autocomplete="email">
+                    @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
