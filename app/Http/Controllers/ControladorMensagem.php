@@ -16,7 +16,7 @@ class ControladorMensagem extends Controller
      */
     public function show(string $idEmergencia)
     {
-        $mensagens = Mensagem::where("idEmergencia", $idEmergencia)->orderByDesc('dtEnvio')->get();
+        $mensagens = Mensagem::where("idEmergencia", $idEmergencia)->orderBy('dtEnvio')->get();
         $emergencia = Emergencia::find($idEmergencia);
         $nome = User::find($emergencia->idUsuario);
         $nome = $nome->name;
