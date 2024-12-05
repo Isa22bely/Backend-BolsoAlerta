@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 // ROTAS DO CONTROLLER DAS EMERGENCIAS
 Route::get('/', [App\Http\Controllers\ControladorEmergencia::class, 'index']);
 Route::get('/listarEmergencia/{id}', [App\Http\Controllers\ControladorEmergencia::class, 'show']);
+Route::get('/confirmarEmergencia/{id}', [App\Http\Controllers\ControladorEmergencia::class, 'confirmarEmergencia']);
+
+ 
+
 
 // ROTAS DO CONTROLLER DAS EMERGENCIAS
 Route::get('/listarMensagens/{idEmergencia}', [App\Http\Controllers\ControladorMensagem::class, 'show'])->name("listarMensagens");

@@ -32,4 +32,10 @@ class ControladorEmergencia extends Controller
         $tipo = $emergencia->status;
         return view('listarEmergenciaEscolhida', compact('emergencia', 'tipo'));
     }
+
+    public function confirmarEmergencia(string $id){
+        $emergencia = Emergencia::find($id);
+        $emergencia->status = "andamento";
+        return view('listarEmergencias', compact('emergenciaAndamento', 'emergenciaNova'));
+    }
 }

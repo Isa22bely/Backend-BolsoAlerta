@@ -32,10 +32,9 @@
         <h5 class="text-start">PESSOA QUE REALIZOU A CHAMADA:</h5>
         <p class="text-start">{{$emergencia->nomeUser}}</p>
         <p class="text-start">Deficiente {{$emergencia->deficiencia}}</p>
-        
-    </div> 
-    </div>
+   
 </div>
+
 <a href="/listarMensagens/{{$emergencia->id}}">
     <div class="cardchat">
         <div class="card border-secondary mb-3" style="max-width: 10rem;">
@@ -45,5 +44,11 @@
         </div>
     </div>
 </a>
+
+<div>
+    @if($emergencia->status == "nova")
+        <a href="/confirmarEmergencia/{{$emergencia->id}}" class="btn btn-primary">Confirmar visualização</a>
+    @endif
+</div>
 
 @endsection
