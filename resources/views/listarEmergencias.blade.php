@@ -35,10 +35,14 @@
     <div style="width: 35%; margin-top: 25px;">
         <h5 class="fw-bold text-center">NOVAS EMERGÊNCIAS </h5>
         @foreach ($emergenciaNova as $item)
-            <a href="/emergencia" style="text-decoration: none;">
+            <a href="/listarEmergencia/{{$item->id}}" style="text-decoration: none;">
                 <div class="card" style="margin-bottom: 2rem;">
+                    
                     <div class="carde" style="padding-top:8px; height: 100%">
-                        <p class="text-center">
+                    <div class="spinner-grow text-danger" role="status">
+                        <span class="visually-hidden">Nova emergencia</span>
+                    </div>
+                                                <p class="text-center">
                             {{$item->rua}}, {{$item->numero}} - {{$item->bairro}}, {{$item->cidade}}
                         </p>
                         <div class="mx-auto p-2" style="width: 80%;">
@@ -51,6 +55,10 @@
                 </div>
             </a>
         @endforeach
+    </div>
+
+    <div>
+        
     </div>
 
 

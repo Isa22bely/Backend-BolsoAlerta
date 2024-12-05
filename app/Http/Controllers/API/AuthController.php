@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Pessoa;
 use App\Traits\ApiResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,7 +22,7 @@ class AuthController extends Controller
             if ($validatedData->fails()) {
                 return $this->error("Falha ao registrar!!!", 403, $validatedData->errors());
             }
-            $user = User::create([
+            $user = Pessoa::create([
                 'name' => $request->get('name'),
                 'email' => $request->get('email'),
                 'RG_PCD' => $request->get('RG_PCD'),
@@ -47,7 +48,7 @@ class AuthController extends Controller
             if (!Auth::attempt($request->only('email', 'password'))) {
                 return $this->error('Dados de autenticação inválidos!!!', 401);
             }
-            $user = User::where('email', $request['email'])->firstOrFail();
+            $user = Pessoa::where('email', $request->get('email'))->firstOrFail();
             $token = $user->createToken('auth_token')->plainTextToken;
             return $this->success([
                 'access_token' => $token,
@@ -65,5 +66,10 @@ class AuthController extends Controller
         } catch (\Throwable $th) {
             return $this->error("Falha ao realizar o logout!!!", 401, $th->getMessage());
         }
+    }
+    
+    public function gerarSenhaADM (Request $request) {
+        $senha = Hash::make($request->get('senha'));
+        return $senha;
     }
 }

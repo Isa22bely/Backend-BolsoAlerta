@@ -21,21 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'RG_PCD',
-        'dtNascimento',
-        'deficiencia',
-        'tipo'
     ];
 
-    public function Emergencia()
-    {
-        return $this->belongsTo(Emergencia::class);
-    }
-
-    public function Mensagem()
-    {
-        return $this->belongsTo(Mensagem::class);
-    }
     /**
      * The attributes that should be hidden for serialization.
      *

@@ -2,17 +2,19 @@
 @section('content')
 <div class="texto">
     <div class="text-center" style="margin-bottom: -45px">
+        @if($emergencia->status == 'andamento')
             <h2 class="fw-medium"> EMERGÊNCIA EM ANDAMENTO</h2>
+        @else
+            <h2 class="fw-medium">NOVO PEDIDO DE SOCORRO SOLICITADO</h2>
+        @endif
     </div>
 </div>
-<a href="/listar">
+<a href="/">
     <div class="pbotao">
         <img  src="{{asset('storage/exemplo/voltarb.svg')}}"style="max-width: 3rem;">
     </div>
 </a>
 
-
-  
 
 <div class="entrecard">
     <div class="card text-center">

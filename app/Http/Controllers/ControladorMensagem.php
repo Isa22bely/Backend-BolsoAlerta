@@ -5,20 +5,21 @@ namespace App\Http\Controllers;
 use App\Models\Emergencia;
 use App\Models\Mensagem;
 use App\Models\User;
+use App\Models\Pessoa;
 use Carbon\Carbon;
 use Date;
 use Illuminate\Http\Request;
 
 class ControladorMensagem extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct(){
+        $this->middleware('auth');
+    }
     public function show(string $idEmergencia)
     {
         $mensagens = Mensagem::where("idEmergencia", $idEmergencia)->orderBy('dtEnvio')->get();
         $emergencia = Emergencia::find($idEmergencia);
-        $nome = User::find($emergencia->idUsuario);
+        $nome = Pessoa::find($emergencia->idUsuario);
         $nome = $nome->name;
         return view("/chat", compact("mensagens", "idEmergencia", "nome"));
     }

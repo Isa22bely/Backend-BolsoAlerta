@@ -14,9 +14,4 @@ class Mensagem extends Model
     {
         return $this->hasOne(Emergencia::class, 'id');
     }
-
-    public function User()
-    {
-        return $this->hasOne(User::class, 'id');
-    }
 }

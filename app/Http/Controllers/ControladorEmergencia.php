@@ -13,7 +13,7 @@ class ControladorEmergencia extends Controller
      * Display a listing of the resource.
      */
 
-    public function _construct(){
+    public function __construct(){
         $this->middleware('auth');
     }
     public function index()
@@ -29,7 +29,7 @@ class ControladorEmergencia extends Controller
         $user = User::find($emergencia->idUsuario);
         $emergencia->nomeUser = $user->name;
         $emergencia->deficiencia = $user->deficiencia;
-        return view('listarEmergenciaEscolhida', compact('emergencia'));
+        $tipo = $emergencia->status;
+        return view('listarEmergenciaEscolhida', compact('emergencia', 'tipo'));
     }
-
 }

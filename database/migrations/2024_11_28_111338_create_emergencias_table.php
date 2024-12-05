@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('numero');
             $table->string('status');
             $table->unsignedBigInteger('idUsuario');
-            $table->foreign('idUsuario')->references('id')->on('users');
+            $table->foreign('idUsuario')->references('id')->on('pessoas');
         });
     }
 
